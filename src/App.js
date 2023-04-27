@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-function Header() {
+function Header(props) {
+  console.log("props", props);
   return (
     <header className="App-header">
       <h1 a href="/">
@@ -37,13 +38,11 @@ function Article() {
     </article>
   );
 }
+
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <Header></Header>
-      <Header></Header>
-
+      <Header title="REACT"></Header>
       <Nav></Nav>
       <Article></Article>
     </div>
