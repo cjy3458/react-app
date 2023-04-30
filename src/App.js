@@ -1,12 +1,25 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+function alarm() {
+  alert("Header");
+}
+
 function Header(props) {
   console.log("props", props);
   return (
     <header className="App-header">
       <h1>
-        <a href="/"> {props.title}</a>
+        <a
+          href="/"
+          onClick={function (event) {
+            event.preventDefault();
+            props.onChangeMode();
+          }}
+        >
+          {" "}
+          {props.title}
+        </a>
       </h1>
     </header>
   );
@@ -46,7 +59,12 @@ function App() {
   ];
   return (
     <div className="App">
-      <Header title="WEB"></Header>
+      <Header
+        title="WEB"
+        onChangeMode={() => {
+          alert("header");
+        }}
+      ></Header>
       <Nav topics={topics}></Nav>
       <Article title="Welcome" body="Hello, WEB"></Article>
     </div>
